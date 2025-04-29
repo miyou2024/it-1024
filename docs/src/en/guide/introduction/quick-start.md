@@ -84,11 +84,11 @@ You will see an output similar to the following, allowing you to select the proj
 ```bash
 │
 ◆  Select the app you need to run [dev]:
-│  ● @vben/web-antd
-│  ○ @vben/web-ele
-│  ○ @vben/web-naive
-│  ○ @vben/docs
-│  ○ @vben/playground
+│  ● @ittlr/web-antd
+│  ○ @ittlr/web-ele
+│  ○ @ittlr/web-naive
+│  ○ @ittlr/docs
+│  ○ @ittlr/playground
 └
 ```
 

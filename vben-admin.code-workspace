@@ -5,19 +5,19 @@
       "path": "apps/backend-mock",
     },
     {
-      "name": "@vben/web-antd",
+      "name": "@ittlr/web-antd",
       "path": "apps/web-antd",
     },
     {
-      "name": "@vben/web-ele",
+      "name": "@ittlr/web-ele",
       "path": "apps/web-ele",
     },
     {
-      "name": "@vben/web-naive",
+      "name": "@ittlr/web-naive",
       "path": "apps/web-naive",
     },
     {
-      "name": "@vben/docs",
+      "name": "@ittlr/docs",
       "path": "docs",
     },
     {
@@ -157,7 +157,7 @@
       "path": "packages/utils",
     },
     {
-      "name": "@vben/playground",
+      "name": "@ittlr/playground",
       "path": "playground",
     },
     {
