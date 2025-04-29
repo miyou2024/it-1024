@@ -4,6 +4,8 @@ feature/cnb-ci: # 触发分支
         image: node:22 # 流水线执行环境，可以指定任意docker镜像
       stages:
         - name: DepsInstall
-          script: pnpm install
+          script:
+            - npm install -g pnpm
+            - pnpm install
         - name: BuildAll
           script: pnpm build
