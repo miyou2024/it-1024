@@ -1,9 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { WINSTON_MODULE_NEST_PROVIDER, WinstonModule } from 'nest-winston';
+import { createLogger } from 'winston';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const instance = createLogger({
+    // options of Winston
+  });
+
+  const app = await NestFactory.create(AppModule, {
+    logger: WinstonModule.createLogger({
+      instance,
+    }),
+  });
 
   /**
    * swagger config
@@ -16,6 +26,8 @@ async function bootstrap() {
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, documentFactory);
+
+  // app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   await app.listen(process.env.PORT ?? 3000);
 }
