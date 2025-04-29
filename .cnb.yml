@@ -1,0 +1,9 @@
+feature/cnb-ci: # 触发分支
+  push: # 触发事件
+    - docker:
+        image: node:22 # 流水线执行环境，可以指定任意docker镜像
+      stages:
+        - name: DepsInstall
+          script: pnpm install
+        - name: BuildAll
+          script: pnpm build
