@@ -5,6 +5,10 @@
       "path": "apps/backend-mock",
     },
     {
+      "name": "@ittlr/backend-nestjs",
+      "path": "apps/backend-nestjs",
+    },
+    {
       "name": "@ittlr/web-antd",
       "path": "apps/web-antd",
     },
