@@ -79,6 +79,7 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
       },
       plugins,
       server: {
+        allowedHosts: true,
         host: true,
         port,
         warmup: {
