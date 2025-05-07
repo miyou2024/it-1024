@@ -43,6 +43,8 @@
     "clean": "node ./scripts/clean.mjs",
     "commit": "czg",
     "dev": "turbo-run dev",
+    "dev:web-console-passport": "pnpm -F @ittlr/web-console-passport run dev",
+    "dev:web-console-home": "pnpm -F @ittlr/web-console-home run dev",
     "dev:antd": "pnpm -F @ittlr/web-antd run dev",
     "dev:docs": "pnpm -F @ittlr/docs run dev",
     "dev:ele": "pnpm -F @ittlr/web-ele run dev",
