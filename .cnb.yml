@@ -22,9 +22,22 @@
         username: $REMOTE_USERNAME
         key: $PRIVATE_KEY
         port: $REMOTE_PORT
-        target: /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
-        source: apps/${CNB_PIPELINE_KEY}/dist/*
+        target: /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top
+        source: apps/${CNB_PIPELINE_KEY}/dist.zip
         rm: true
+    - name: 通过 ssh 执行命令
+      image: tencentcom/ssh
+      settings:
+        host:
+          - ${REMOTE_HOST}
+        username: ${REMOTE_USERNAME}
+        key: ${PRIVATE_KEY}
+        port: ${REMOTE_PORT}
+        command_timeout: 2m
+        script: |
+          cd /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top
+          rm -rf index/*
+          unzip -r ./dist.zip ./index/
 
 master:
   push:
