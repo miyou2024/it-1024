@@ -13,7 +13,6 @@
     - name: 查看编译结果
       script:
         - ls -l apps/${CNB_PIPELINE_KEY}
-        - tree apps/${CNB_PIPELINE_KEY}/dist
 
 master:
   push:
