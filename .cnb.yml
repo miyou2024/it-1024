@@ -4,6 +4,8 @@
   ifModify:
     - apps/${CNB_PIPELINE_KEY}/** # 当前应用更新
     - packages/**/** #依赖包更新
+  imports:
+    - https://cnb.cool/my-cnb/KeyConfig/-/blob/700894071a12257f2b67f00dac2586479bf97d55/.sls-ali.yml
   stages:
     - name: 编译构建
       script:
@@ -13,6 +15,15 @@
     - name: 查看编译结果
       script:
         - ls -l apps/${CNB_PIPELINE_KEY}
+    - name: 使用 scp 将文件上传到服务器
+          image: tencentcom/scp
+          settings:
+            host: $REMOTE_HOST
+            username: $REMOTE_USERNAME
+            key: $PRIVATE_KEY
+            port: $REMOTE_PORT
+            target: /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
+            source: apps/${CNB_PIPELINE_KEY}/dist
 
 master:
   push:
