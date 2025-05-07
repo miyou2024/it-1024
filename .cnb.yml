@@ -16,14 +16,14 @@
       script:
         - ls -l apps/${CNB_PIPELINE_KEY}
     - name: 使用 scp 将文件上传到服务器
-          image: tencentcom/scp
-          settings:
-            host: $REMOTE_HOST
-            username: $REMOTE_USERNAME
-            key: $PRIVATE_KEY
-            port: $REMOTE_PORT
-            target: /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
-            source: apps/${CNB_PIPELINE_KEY}/dist
+      image: tencentcom/scp
+      settings:
+        host: $REMOTE_HOST
+        username: $REMOTE_USERNAME
+        key: $PRIVATE_KEY
+        port: $REMOTE_PORT
+        target: /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
+        source: apps/${CNB_PIPELINE_KEY}/dist
 
 master:
   push:
