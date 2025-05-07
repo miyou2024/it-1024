@@ -8,7 +8,9 @@
     - name: 编译构建
       script: npm install && npm run build:${CNB_PIPELINE_KEY}
     - name: 查看编译结果
-      script: npm install && npm run build
+      script: |
+        ls -l apps/${CNB_PIPELINE_KEY}
+        tree apps/${CNB_PIPELINE_KEY}/dist
 
 master:
   push:
