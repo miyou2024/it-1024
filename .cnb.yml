@@ -6,14 +6,14 @@
     - packages/**/** #依赖包更新
   stages:
     - name: 编译构建
-      script: |
-        npm install -g pnpm
-        pnpm install
-        pnpm build:${CNB_PIPELINE_KEY}
+      script:
+        - npm install -g pnpm
+        - pnpm install
+        - pnpm build:${CNB_PIPELINE_KEY}
     - name: 查看编译结果
-      script: |
-        ls -l apps/${CNB_PIPELINE_KEY}
-        tree apps/${CNB_PIPELINE_KEY}/dist
+      script:
+        - ls -l apps/${CNB_PIPELINE_KEY}
+        - tree apps/${CNB_PIPELINE_KEY}/dist
 
 master:
   push:
