@@ -24,6 +24,7 @@
         port: $REMOTE_PORT
         target: /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
         source: apps/${CNB_PIPELINE_KEY}/dist/*
+        rm: true
 
 master:
   push:
