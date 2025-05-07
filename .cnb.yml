@@ -15,7 +15,7 @@
     - name: 查看编译结果
       script:
         - ls -l apps/${CNB_PIPELINE_KEY}
-    - name: 使用 scp 将文件上传到服务器
+    - name: scp-ali-ecs
       image: tencentcom/scp
       settings:
         host: $REMOTE_HOST
@@ -24,7 +24,9 @@
         port: $REMOTE_PORT
         target: /tmp
         source: apps/${CNB_PIPELINE_KEY}/dist
-    - name: 通过 ssh 执行命令
+    - name: ssh-deploy-web-console-home
+      if: |
+          [ "$CNB_PIPELINE_KEY" = "web-console-home" ]
       image: tencentcom/ssh
       settings:
         host:
@@ -38,6 +40,22 @@
           mkdir /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
           cp -r /tmp/apps/${CNB_PIPELINE_KEY}/dist/* /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
           ls -l /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
+    - name: ssh-deploy-web-console-passport
+      if: |
+          [ "$CNB_PIPELINE_KEY" = "web-console-passport" ]
+      image: tencentcom/ssh
+      settings:
+        host:
+          - ${REMOTE_HOST}
+        username: ${REMOTE_USERNAME}
+        key: ${PRIVATE_KEY}
+        port: ${REMOTE_PORT}
+        command_timeout: 2m
+        script: |
+          ls -l /tmp/apps/${CNB_PIPELINE_KEY}/dist/
+          mkdir /opt/1panel/apps/openresty/1p-openresty/www/sites/passport.console.miyou.top/index
+          cp -r /tmp/apps/${CNB_PIPELINE_KEY}/dist/* /opt/1panel/apps/openresty/1p-openresty/www/sites/passport.console.miyou.top/index
+          ls -l /opt/1panel/apps/openresty/1p-openresty/www/sites/passport.console.miyou.top/index
 
 master:
   push:
