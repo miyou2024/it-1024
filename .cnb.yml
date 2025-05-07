@@ -35,6 +35,7 @@
         command_timeout: 2m
         script: |
           ls -l /tmp/apps/${CNB_PIPELINE_KEY}/dist/
+          mkdir /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
           cp -r /tmp/apps/${CNB_PIPELINE_KEY}/dist/* /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
           ls -l /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
 
