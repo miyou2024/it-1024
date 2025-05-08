@@ -4,9 +4,9 @@ layout: home
 sidebar: false
 
 hero:
-  name: Vben Admin
-  text: 企业级管理系统框架
-  tagline: 全新升级，开箱即用，简单高效
+  name: It FullStack
+  text: 企业级IT系统框架
+  tagline: 前后端微服务化，独立开发/部署/维护！
   image:
     src: https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp
     alt: Vben Admin
