@@ -13,16 +13,16 @@ import { Plus } from '@vben/icons';
 import { Button, message, Modal } from 'ant-design-vue';
 
 import { useVbenVxeGrid } from '#/adapter/vxe-table';
-import { deleteRole, getRoleList, updateRole } from '#/api';
+//import { deleteRole, getRoleList, updateRole } from '#/api';
 import { $t } from '#/locales';
 
-import { useColumns, useGridFormSchema } from './data';
-import Form from './modules/form.vue';
+import { getEmployeeList, useColumns, useGridFormSchema } from "./data";
+//import Form from './modules/form.vue';
 
-const [FormDrawer, formDrawerApi] = useVbenDrawer({
-  connectedComponent: Form,
-  destroyOnClose: true,
-});
+//const [FormDrawer, formDrawerApi] = useVbenDrawer({
+//  connectedComponent: Form,
+//  destroyOnClose: true,
+//});
 
 const [Grid, gridApi] = useVbenVxeGrid({
   formOptions: {
@@ -37,13 +37,11 @@ const [Grid, gridApi] = useVbenVxeGrid({
     proxyConfig: {
       ajax: {
         query: async ({ page }, formValues) => {
-          const result = await getRoleList({
+          return await getEmployeeList({
             page: page.currentPage,
             pageSize: page.pageSize,
             ...formValues,
           });
-          console.log('result', result);
-          return result;
         },
       },
     },
@@ -113,7 +111,7 @@ async function onStatusChange(
       `你要将${row.name}的状态切换为 【${status[newStatus.toString()]}】 吗？`,
       `切换状态`,
     );
-    await updateRole(row.id, { status: newStatus });
+//    await updateRole(row.id, { status: newStatus });
     return true;
   } catch {
     return false;
@@ -121,7 +119,7 @@ async function onStatusChange(
 }
 
 function onEdit(row: SystemRoleApi.SystemRole) {
-  formDrawerApi.setData(row).open();
+//  formDrawerApi.setData(row).open();
 }
 
 function onDelete(row: SystemRoleApi.SystemRole) {
@@ -130,17 +128,17 @@ function onDelete(row: SystemRoleApi.SystemRole) {
     duration: 0,
     key: 'action_process_msg',
   });
-  deleteRole(row.id)
-    .then(() => {
-      message.success({
-        content: $t('ui.actionMessage.deleteSuccess', [row.name]),
-        key: 'action_process_msg',
-      });
-      onRefresh();
-    })
-    .catch(() => {
-      hideLoading();
-    });
+//  deleteRole(row.id)
+//    .then(() => {
+//      message.success({
+//        content: $t('ui.actionMessage.deleteSuccess', [row.name]),
+//        key: 'action_process_msg',
+//      });
+//      onRefresh();
+//    })
+//    .catch(() => {
+//      hideLoading();
+//    });
 }
 
 function onRefresh() {
@@ -148,17 +146,17 @@ function onRefresh() {
 }
 
 function onCreate() {
-  formDrawerApi.setData({}).open();
+//  formDrawerApi.setData({}).open();
 }
 </script>
 <template>
   <Page auto-content-height>
-    <FormDrawer />
-    <Grid :table-title="$t('system.role.list')">
+<!--    <FormDrawer />-->
+    <Grid :table-title="$t('store.employee.list')">
       <template #toolbar-tools>
         <Button type="primary" @click="onCreate">
           <Plus class="size-5" />
-          {{ $t('ui.actionTitle.create', [$t('system.role.name')]) }}
+          {{ $t('ui.actionTitle.create', [$t('store.employee.name')]) }}
         </Button>
       </template>
     </Grid>
