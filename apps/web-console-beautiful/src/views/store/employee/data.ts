@@ -1,6 +1,6 @@
 import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
-//import type { SystemRoleApi } from '#/api';
+import type { SystemRoleApi } from '#/api';
 
 import { $t } from '#/locales';
 
@@ -136,11 +136,11 @@ export async function getEmployeeList(data: any) {
       status: 0,
       remark: `reamrk-${i}`,
       createTime: new Date(),
-      permissions: [2],
+      permissions: [3, 4],
     });
   }
   return {
     items,
-    total: items.length,
+    total: 100,
   };
 }

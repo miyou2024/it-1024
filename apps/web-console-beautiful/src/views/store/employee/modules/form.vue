@@ -60,7 +60,7 @@ const [Drawer, drawerApi] = useVbenDrawer({
       }
 
       if (permissions.value.length === 0) {
-        loadPermissions();
+//        loadPermissions();
       }
     }
   },
