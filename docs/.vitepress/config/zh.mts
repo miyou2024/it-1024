@@ -204,6 +204,48 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
+      text: '架构设计',
+      items: [
+        {
+          link: '/architecture/feature',
+          text: '功能模块',
+        },
+        {
+          link: '/architecture/database',
+          text: '数据库',
+        },
+      ],
+    },
+    {
+      text: '我的应用',
+      items: [
+        {
+          link: '/apps/ai-helper',
+          text: 'AI助手',
+        },
+        {
+          link: '/apps/meta',
+          text: '源数据',
+        },
+        {
+          link: '/apps/account',
+          text: '账号资源',
+        },
+        {
+          link: '/apps/document',
+          text: '文档服务',
+        },
+        {
+          link: '/apps/loc',
+          text: '位置服务',
+        },
+        {
+          link: '/apps/src-link',
+          text: '外链',
+        },
+      ],
+    },
+    {
       activeMatch: '^/(guide|components)/',
       text: '文档',
       items: [
