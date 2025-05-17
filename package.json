@@ -1,27 +1,16 @@
 {
-  "name": "vben-admin-monorepo",
+  "name": "it-1024",
   "version": "5.5.5",
   "private": true,
-  "keywords": [
-    "monorepo",
-    "turbo",
-    "vben",
-    "vben admin",
-    "vben pro",
-    "vue",
-    "vue admin",
-    "vue vben admin",
-    "vue vben admin pro",
-    "vue3"
-  ],
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
-  "repository": "vbenjs/vue-vben-admin.git",
+  "keywords": [],
+  "homepage": "https://github.com/miyou2024/it-1024",
+  "bugs": "https://github.com/miyou2024/it-1024/issues",
+  "repository": "miyou2024/it-1024.git",
   "license": "MIT",
   "author": {
-    "name": "vben",
-    "email": "ann.vben@gmail.com",
-    "url": "https://github.com/anncwb"
+    "name": "miyou",
+    "email": "support@miyou.top",
+    "url": "https://github.com/miyou2024"
   },
   "type": "module",
   "scripts": {
@@ -34,6 +23,7 @@
     "build:naive": "pnpm run build --filter=@ittlr/web-naive",
     "build:play": "pnpm run build --filter=@ittlr/playground",
     "build:backend-nestjs": "pnpm run build --filter=@ittlr/backend-nestjs",
+    "build:backend-passport": "pnpm run build --filter=@ittlr/backend-passport",
     "build:web-console-passport": "pnpm run build --filter=@ittlr/web-console-passport",
     "build:web-console-home": "pnpm run build --filter=@ittlr/web-console-home",
     "build:web-console-loc": "pnpm run build --filter=@ittlr/web-console-loc",
@@ -57,6 +47,7 @@
     "dev:naive": "pnpm -F @ittlr/web-naive run dev",
     "dev:play": "pnpm -F @ittlr/playground run dev",
     "dev:backend-nestjs": "pnpm -F @ittlr/backend-nestjs run dev",
+    "dev:backend-passport": "pnpm -F @ittlr/backend-passport run dev",
     "postinstall": "pnpm -r run stub --if-present",
     "preinstall": "npx only-allow pnpm",
     "preview": "turbo-run preview",
