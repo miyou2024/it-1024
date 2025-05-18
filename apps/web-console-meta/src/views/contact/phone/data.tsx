@@ -2,15 +2,46 @@ import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api';
 
+import { VbenButton } from '@vben/common-ui';
+
 import { $t } from '#/locales';
+
+import { usePhoneHook } from './hooks/use-phone.hook';
+
+const { providers, getProviders } = usePhoneHook();
 
 export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
-      fieldName: 'name',
-      label: $t('account.phone.name'),
+      fieldName: 'phoneUser',
+      label: $t('contact.phone.phoneUser'),
       rules: 'required',
+    },
+    {
+      component: 'Input',
+      fieldName: 'phoneNumber',
+      label: $t('contact.phone.phoneNumber'),
+      rules: 'required',
+      renderComponentContent: () => {
+        return {
+          suffix: () => <VbenButton size={'sm'}>识别</VbenButton>,
+        };
+      },
+    },
+    {
+      component: 'RadioGroup',
+      componentProps: () => {
+        getProviders();
+        return {
+          buttonStyle: 'solid',
+          options: providers.value,
+          optionType: 'button',
+        };
+      },
+      defaultValue: null,
+      fieldName: 'phoneProvider',
+      label: $t('contact.phone.phoneProvider'),
     },
     {
       component: 'RadioGroup',
@@ -24,12 +55,12 @@ export function useFormSchema(): VbenFormSchema[] {
       },
       defaultValue: 1,
       fieldName: 'status',
-      label: $t('account.phone.status'),
+      label: $t('contact.phone.status'),
     },
     {
       component: 'Textarea',
       fieldName: 'remark',
-      label: $t('account.phone.remark'),
+      label: $t('contact.phone.remark'),
     },
   ];
 }
@@ -38,8 +69,13 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
+      fieldName: 'remark',
+      label: $t('contact.phone.phoneUser'),
+    },
+    {
+      component: 'Input',
       fieldName: 'name',
-      label: $t('account.phone.name'),
+      label: $t('contact.phone.phoneNumber'),
     },
     {
       component: 'Select',
@@ -51,12 +87,20 @@ export function useGridFormSchema(): VbenFormSchema[] {
         ],
       },
       fieldName: 'status',
-      label: $t('store.employee.status'),
+      label: $t('contact.phone.status'),
     },
     {
-      component: 'Input',
-      fieldName: 'remark',
-      label: $t('account.phone.remark'),
+      component: 'Select',
+      componentProps: {
+        allowClear: true,
+        options: [
+          { label: '中国移动', value: 1 },
+          { label: '中国电信', value: 2 },
+          { label: '中国联通', value: 2 },
+        ],
+      },
+      fieldName: 'phoneProvider',
+      label: $t('contact.phone.phoneProvider'),
     },
   ];
 }
@@ -68,12 +112,22 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
   return [
     {
       field: 'id',
-      title: $t('account.phone.id'),
+      title: $t('contact.phone.id'),
       width: 200,
     },
     {
-      field: 'name',
-      title: $t('account.phone.name'),
+      field: 'phoneUser',
+      title: $t('contact.phone.phoneUser'),
+      width: 200,
+    },
+    {
+      field: 'phoneNumber',
+      title: $t('contact.phone.phoneNumber'),
+      width: 200,
+    },
+    {
+      field: 'phoneProvider',
+      title: $t('contact.phone.phoneProvider'),
       width: 200,
     },
     {
@@ -82,17 +136,17 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
         name: onStatusChange ? 'CellSwitch' : 'CellTag',
       },
       field: 'status',
-      title: $t('store.employee.status'),
+      title: $t('contact.phone.status'),
       width: 100,
     },
     {
       field: 'remark',
       minWidth: 100,
-      title: $t('store.employee.remark'),
+      title: $t('contact.phone.remark'),
     },
     {
       field: 'createTime',
-      title: $t('store.employee.createTime'),
+      title: $t('contact.phone.createTime'),
       width: 200,
     },
     {
@@ -100,14 +154,14 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
       cellRender: {
         attrs: {
           nameField: 'name',
-          nameTitle: $t('store.employee.name'),
+          nameTitle: $t('contact.phone.name'),
           onClick: onActionClick,
         },
         name: 'CellOperation',
       },
       field: 'operation',
       fixed: 'right',
-      title: $t('store.employee.operation'),
+      title: $t('contact.phone.operation'),
       width: 130,
     },
   ];
