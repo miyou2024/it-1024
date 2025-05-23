@@ -52,6 +52,7 @@
     "dev:play": "pnpm -F @ittlr/playground run dev",
     "dev:backend-nestjs": "pnpm -F @ittlr/backend-nestjs run dev",
     "dev:backend-passport": "pnpm -F @ittlr/backend-passport run dev",
+    "dev:backend-console-config": "pnpm -F @ittlr/backend-console-config run dev",
     "postinstall": "pnpm -r run stub --if-present",
     "preinstall": "npx only-allow pnpm",
     "preview": "turbo-run preview",
