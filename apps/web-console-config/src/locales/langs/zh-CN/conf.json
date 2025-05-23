@@ -1,0 +1,13 @@
+{
+  "namespace": {
+    "list": "部门列表",
+    "createTime": "创建时间",
+    "deptName": "部门名称",
+    "name": "部门",
+    "operation": "操作",
+    "remark": "备注",
+    "status": "状态",
+    "title": "命名空间"
+  },
+  "title": "配置管理"
+}

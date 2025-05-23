@@ -152,11 +152,11 @@ function onCreate() {
 <template>
   <Page auto-content-height>
     <FormDrawer />
-    <Grid :table-title="$t('store.employee.list')">
+    <Grid :table-title="$t('contact.phone.list')">
       <template #toolbar-tools>
         <Button type="primary" @click="onCreate">
           <Plus class="size-5" />
-          {{ $t('ui.actionTitle.create', [$t('store.employee.name')]) }}
+          {{ $t('ui.actionTitle.create', [$t('contact.phone.title')]) }}
         </Button>
       </template>
     </Grid>
