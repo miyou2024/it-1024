@@ -16,8 +16,11 @@ import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteRole, updateRole } from '#/api';
 import { $t } from '#/locales';
 
-import { getEmployeeList, useColumns, useGridFormSchema } from './data';
+import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
+import { useApiHook } from './hooks/use-api.hook';
+
+const { getTableList } = useApiHook();
 
 const [FormDrawer, formDrawerApi] = useVbenDrawer({
   connectedComponent: Form,
@@ -37,7 +40,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
     proxyConfig: {
       ajax: {
         query: async ({ page }, formValues) => {
-          return await getEmployeeList({
+          return await getTableList({
             page: page.currentPage,
             pageSize: page.pageSize,
             ...formValues,
@@ -152,11 +155,11 @@ function onCreate() {
 <template>
   <Page auto-content-height>
     <FormDrawer />
-    <Grid :table-title="$t('contact.phone.list')">
+    <Grid :table-title="$t('conf.namespace.list')">
       <template #toolbar-tools>
         <Button type="primary" @click="onCreate">
           <Plus class="size-5" />
-          {{ $t('ui.actionTitle.create', [$t('contact.phone.title')]) }}
+          {{ $t('ui.actionTitle.create', [$t('conf.namespace.title')]) }}
         </Button>
       </template>
     </Grid>

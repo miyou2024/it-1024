@@ -1,13 +1,36 @@
 {
   "namespace": {
-    "list": "部门列表",
+    "list": "命名空间列表",
+    "id": "ID",
+    "nsCode": "编码",
+    "nsName": "名称",
     "createTime": "创建时间",
-    "deptName": "部门名称",
-    "name": "部门",
-    "operation": "操作",
+    "createUser": "创建人",
+    "updateTime": "修改时间",
+    "updateUser": "修改人",
+    "deleteTime": "删除时间",
+    "deleteUser": "删除人",
     "remark": "备注",
     "status": "状态",
-    "title": "命名空间"
+    "title": "命名空间",
+    "operation": "操作"
+  },
+  "dict": {
+    "list": "字典列表",
+    "id": "ID",
+    "dictCode": "字典编码",
+    "dictKey": "字典Key",
+    "dictValue": "字典Val",
+    "createTime": "创建时间",
+    "createUser": "创建人",
+    "updateTime": "修改时间",
+    "updateUser": "修改人",
+    "deleteTime": "删除时间",
+    "deleteUser": "删除人",
+    "remark": "备注",
+    "status": "状态",
+    "title": "字典配置",
+    "operation": "操作"
   },
   "title": "配置管理"
 }

@@ -6,42 +6,24 @@ import { VbenButton } from '@vben/common-ui';
 
 import { $t } from '#/locales';
 
-import { usePhoneHook } from './hooks/use-phone.hook';
-
-const { providers, getProviders } = usePhoneHook();
-
 export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
-      fieldName: 'phoneUser',
-      label: $t('contact.phone.phoneUser'),
+      fieldName: 'nsName',
+      label: $t('conf.namespace.nsName'),
       rules: 'required',
     },
     {
       component: 'Input',
-      fieldName: 'phoneNumber',
-      label: $t('contact.phone.phoneNumber'),
+      fieldName: 'nsCode',
+      label: $t('conf.namespace.nsCode'),
       rules: 'required',
       renderComponentContent: () => {
         return {
-          suffix: () => <VbenButton size={'sm'}>识别</VbenButton>,
+          suffix: () => <VbenButton size={'sm'}>生成</VbenButton>,
         };
       },
-    },
-    {
-      component: 'RadioGroup',
-      componentProps: () => {
-        getProviders();
-        return {
-          buttonStyle: 'solid',
-          options: providers.value,
-          optionType: 'button',
-        };
-      },
-      defaultValue: null,
-      fieldName: 'phoneProvider',
-      label: $t('contact.phone.phoneProvider'),
     },
     {
       component: 'RadioGroup',
@@ -55,12 +37,12 @@ export function useFormSchema(): VbenFormSchema[] {
       },
       defaultValue: 1,
       fieldName: 'status',
-      label: $t('contact.phone.status'),
+      label: $t('conf.namespace.status'),
     },
     {
       component: 'Textarea',
       fieldName: 'remark',
-      label: $t('contact.phone.remark'),
+      label: $t('conf.namespace.remark'),
     },
   ];
 }
@@ -69,13 +51,13 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
-      fieldName: 'remark',
-      label: $t('contact.phone.phoneUser'),
+      fieldName: 'nsCode',
+      label: $t('conf.namespace.nsCode'),
     },
     {
       component: 'Input',
-      fieldName: 'name',
-      label: $t('contact.phone.phoneNumber'),
+      fieldName: 'nsName',
+      label: $t('conf.namespace.nsName'),
     },
     {
       component: 'Select',
@@ -89,19 +71,6 @@ export function useGridFormSchema(): VbenFormSchema[] {
       fieldName: 'status',
       label: $t('contact.phone.status'),
     },
-    {
-      component: 'Select',
-      componentProps: {
-        allowClear: true,
-        options: [
-          { label: '中国移动', value: 1 },
-          { label: '中国电信', value: 2 },
-          { label: '中国联通', value: 2 },
-        ],
-      },
-      fieldName: 'phoneProvider',
-      label: $t('contact.phone.phoneProvider'),
-    },
   ];
 }
 
@@ -112,22 +81,17 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
   return [
     {
       field: 'id',
-      title: $t('contact.phone.id'),
+      title: $t('conf.namespace.id'),
       width: 200,
     },
     {
-      field: 'phoneUser',
-      title: $t('contact.phone.phoneUser'),
+      field: 'nsCode',
+      title: $t('conf.namespace.nsCode'),
       width: 200,
     },
     {
-      field: 'phoneNumber',
-      title: $t('contact.phone.phoneNumber'),
-      width: 200,
-    },
-    {
-      field: 'phoneProvider',
-      title: $t('contact.phone.phoneProvider'),
+      field: 'nsName',
+      title: $t('conf.namespace.nsName'),
       width: 200,
     },
     {
@@ -161,27 +125,9 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
       },
       field: 'operation',
       fixed: 'right',
-      title: $t('contact.phone.operation'),
+      title: $t('conf.namespace.operation'),
       width: 130,
     },
   ];
 }
 
-export async function getEmployeeList(data: any) {
-  const items = [];
-  for (let i = 0; i < 20; i++) {
-    items.push({
-      id: i,
-      employeeName: `employeeName-${i}`,
-      name: `name-${i}`,
-      status: 0,
-      remark: `reamrk-${i}`,
-      createTime: new Date(),
-      permissions: [3, 4],
-    });
-  }
-  return {
-    items,
-    total: 100,
-  };
-}
