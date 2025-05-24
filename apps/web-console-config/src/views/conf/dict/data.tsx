@@ -2,46 +2,46 @@ import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api';
 
-import { VbenButton } from '@vben/common-ui';
-
 import { $t } from '#/locales';
-
-import { usePhoneHook } from './hooks/use-phone.hook';
-
-const { providers, getProviders } = usePhoneHook();
 
 export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
-      fieldName: 'phoneUser',
-      label: $t('contact.phone.phoneUser'),
+      fieldName: 'dictName',
+      label: $t('conf.dict.dictName'),
       rules: 'required',
     },
     {
       component: 'Input',
-      fieldName: 'phoneNumber',
-      label: $t('contact.phone.phoneNumber'),
-      rules: 'required',
-      renderComponentContent: () => {
-        return {
-          suffix: () => <VbenButton size={'sm'}>识别</VbenButton>,
-        };
+      fieldName: 'dictCode',
+      label: $t('conf.dict.dictCode'),
+      componentProps: {
+        placeholder: '例如 db.example.mysql',
       },
+      rules: 'required',
     },
     {
       component: 'RadioGroup',
-      componentProps: () => {
-        getProviders();
-        return {
-          buttonStyle: 'solid',
-          options: providers.value,
-          optionType: 'button',
-        };
+      componentProps: {
+        buttonStyle: 'solid',
+        options: [
+          { label: $t('conf.dict.enumDictType.number'), value: 10 },
+          { label: $t('conf.dict.enumDictType.string'), value: 20 },
+          { label: $t('conf.dict.enumDictType.object'), value: 30 },
+          { label: $t('conf.dict.enumDictType.array'), value: 40 },
+        ],
+        optionType: 'button',
       },
-      defaultValue: null,
-      fieldName: 'phoneProvider',
-      label: $t('contact.phone.phoneProvider'),
+      defaultValue: 10,
+      fieldName: 'dictType',
+      label: $t('conf.dict.dictType'),
+    },
+    {
+      component: 'Input',
+      fieldName: 'dictValue',
+      label: $t('conf.dict.dictValue'),
+      rules: 'required',
     },
     {
       component: 'RadioGroup',
@@ -69,13 +69,13 @@ export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
-      fieldName: 'remark',
-      label: $t('contact.phone.phoneUser'),
+      fieldName: 'dictCode',
+      label: $t('conf.dict.dictCode'),
     },
     {
       component: 'Input',
-      fieldName: 'name',
-      label: $t('contact.phone.phoneNumber'),
+      fieldName: 'dictName',
+      label: $t('conf.dict.dictName'),
     },
     {
       component: 'Select',
@@ -87,20 +87,21 @@ export function useGridFormSchema(): VbenFormSchema[] {
         ],
       },
       fieldName: 'status',
-      label: $t('contact.phone.status'),
+      label: $t('conf.dict.status'),
     },
     {
       component: 'Select',
       componentProps: {
         allowClear: true,
         options: [
-          { label: '中国移动', value: 1 },
-          { label: '中国电信', value: 2 },
-          { label: '中国联通', value: 2 },
+          { label: '数字类型', value: 10 },
+          { label: '字符串类型', value: 20 },
+          { label: '对象类型', value: 30 },
+          { label: '数组类型', value: 40 },
         ],
       },
-      fieldName: 'phoneProvider',
-      label: $t('contact.phone.phoneProvider'),
+      fieldName: 'dictType',
+      label: $t('conf.dict.dictType'),
     },
   ];
 }
@@ -112,22 +113,27 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
   return [
     {
       field: 'id',
-      title: $t('contact.phone.id'),
+      title: $t('conf.dict.id'),
       width: 200,
     },
     {
-      field: 'phoneUser',
-      title: $t('contact.phone.phoneUser'),
+      field: 'dictCode',
+      title: $t('conf.dict.dictCode'),
       width: 200,
     },
     {
-      field: 'phoneNumber',
-      title: $t('contact.phone.phoneNumber'),
+      field: 'dictName',
+      title: $t('conf.dict.dictName'),
       width: 200,
     },
     {
-      field: 'phoneProvider',
-      title: $t('contact.phone.phoneProvider'),
+      field: 'dictType',
+      title: $t('conf.dict.dictType'),
+      width: 200,
+    },
+    {
+      field: 'dictValue',
+      title: $t('conf.dict.dictValue'),
       width: 200,
     },
     {
@@ -136,17 +142,17 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
         name: onStatusChange ? 'CellSwitch' : 'CellTag',
       },
       field: 'status',
-      title: $t('contact.phone.status'),
+      title: $t('conf.dict.status'),
       width: 100,
     },
     {
       field: 'remark',
       minWidth: 100,
-      title: $t('contact.phone.remark'),
+      title: $t('conf.dict.remark'),
     },
     {
       field: 'createTime',
-      title: $t('contact.phone.createTime'),
+      title: $t('conf.dict.createTime'),
       width: 200,
     },
     {
@@ -154,34 +160,15 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
       cellRender: {
         attrs: {
           nameField: 'name',
-          nameTitle: $t('contact.phone.name'),
+          nameTitle: $t('conf.dict.name'),
           onClick: onActionClick,
         },
         name: 'CellOperation',
       },
       field: 'operation',
       fixed: 'right',
-      title: $t('contact.phone.operation'),
+      title: $t('conf.dict.operation'),
       width: 130,
     },
   ];
-}
-
-export async function getEmployeeList(data: any) {
-  const items = [];
-  for (let i = 0; i < 20; i++) {
-    items.push({
-      id: i,
-      employeeName: `employeeName-${i}`,
-      name: `name-${i}`,
-      status: 0,
-      remark: `reamrk-${i}`,
-      createTime: new Date(),
-      permissions: [3, 4],
-    });
-  }
-  return {
-    items,
-    total: 100,
-  };
 }

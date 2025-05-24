@@ -10,7 +10,7 @@ import { computed, ref } from 'vue';
 import { useVbenDrawer, VbenTree } from '@vben/common-ui';
 import { IconifyIcon } from '@vben/icons';
 
-import { Spin } from 'ant-design-vue';
+import { Input, InputNumber, Space, Spin, Textarea } from 'ant-design-vue';
 
 import { useVbenForm } from '#/adapter/form';
 import { createRole, updateRole } from '#/api/system/role';
@@ -61,6 +61,10 @@ const [Drawer, drawerApi] = useVbenDrawer({
   },
 });
 
+const dictType = computed(() => {
+  return formApi.form.values.dictType;
+});
+
 const getDrawerTitle = computed(() => {
   return formData.value?.id
     ? $t('common.edit', $t('system.role.name'))
@@ -82,6 +86,29 @@ function getNodeClass(node: Recordable<any>) {
 <template>
   <Drawer :title="getDrawerTitle">
     <Form>
+      <template #dictValue="slotProps">
+        <InputNumber
+          style="width: 100%"
+          placeholder="请输入数字"
+          v-if="dictType === 10"
+          v-bind="slotProps"
+        />
+        <Input
+          placeholder="请输入文本"
+          v-if="dictType === 20"
+          v-bind="slotProps"
+        />
+        <Textarea
+          placeholder="请输入key-value形式的JSON"
+          v-if="dictType === 30"
+          v-bind="slotProps"
+        />
+        <Textarea
+          placeholder="请输入数组形式的JSON"
+          v-if="dictType === 40"
+          v-bind="slotProps"
+        />
+      </template>
       <template #permissions="slotProps">
         <Spin :spinning="loadingPermissions" wrapper-class-name="w-full">
           <VbenTree
