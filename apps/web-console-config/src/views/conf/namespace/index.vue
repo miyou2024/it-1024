@@ -17,8 +17,8 @@ import { deleteRole, updateRole } from '#/api';
 import { $t } from '#/locales';
 
 import { useColumns, useGridFormSchema } from './data';
-import Form from './modules/form.vue';
 import { useApiHook } from './hooks/use-api.hook';
+import Form from './modules/form.vue';
 
 const { getTableList } = useApiHook();
 

@@ -154,8 +154,8 @@ function onCreate() {
 }
 
 onMounted(async () => {
-  onCreate();
-})
+  // onCreate();
+});
 </script>
 <template>
   <Page auto-content-height>

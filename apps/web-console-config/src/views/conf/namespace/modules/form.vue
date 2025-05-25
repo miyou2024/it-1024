@@ -10,7 +10,7 @@ import { computed, ref } from 'vue';
 import { useVbenDrawer, VbenTree } from '@vben/common-ui';
 import { IconifyIcon } from '@vben/icons';
 
-import { Spin } from 'ant-design-vue';
+import { message, Spin } from 'ant-design-vue';
 
 import { useVbenForm } from '#/adapter/form';
 import { createRole, updateRole } from '#/api/system/role';
@@ -37,6 +37,7 @@ const [Drawer, drawerApi] = useVbenDrawer({
     if (!valid) return;
     const values = await formApi.getValues();
     drawerApi.lock();
+    message.success(JSON.stringify({ id: id.value, values }));
     (id.value ? updateRole(id.value, values) : createRole(values))
       .then(() => {
         emits('success');

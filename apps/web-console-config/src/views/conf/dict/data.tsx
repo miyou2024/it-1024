@@ -7,6 +7,23 @@ import { $t } from '#/locales';
 export function useFormSchema(): VbenFormSchema[] {
   return [
     {
+      component: 'ApiSelect',
+      fieldName: 'namespace',
+      label: $t('conf.dict.nsRelation'),
+      componentProps: {
+        style: {
+          width: '100%',
+        },
+        options: [
+          { label: $t('conf.dict.enumDictType.number'), value: 10 },
+          { label: $t('conf.dict.enumDictType.string'), value: 20 },
+          { label: $t('conf.dict.enumDictType.object'), value: 30 },
+          { label: $t('conf.dict.enumDictType.array'), value: 40 },
+        ],
+      },
+      rules: 'required',
+    },
+    {
       component: 'Input',
       fieldName: 'dictName',
       label: $t('conf.dict.dictName'),
@@ -67,6 +84,20 @@ export function useFormSchema(): VbenFormSchema[] {
 
 export function useGridFormSchema(): VbenFormSchema[] {
   return [
+    {
+      component: 'ApiSelect',
+      componentProps: {
+        allowClear: true,
+        options: [
+          { label: $t('conf.dict.enumDictType.number'), value: 10 },
+          { label: $t('conf.dict.enumDictType.string'), value: 20 },
+          { label: $t('conf.dict.enumDictType.object'), value: 30 },
+          { label: $t('conf.dict.enumDictType.array'), value: 40 },
+        ],
+      },
+      fieldName: 'namespace',
+      label: $t('conf.dict.nsRelation'),
+    },
     {
       component: 'Input',
       fieldName: 'dictCode',
