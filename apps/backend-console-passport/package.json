@@ -1,5 +1,5 @@
 {
-  "name": "@ittlr/backend-passport",
+  "name": "@ittlr/backend-console-passport",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -34,7 +34,6 @@
     "@nestjs/sequelize": "^11.0.0",
     "@nestjs/swagger": "^11.1.5",
     "@nestjs/typeorm": "^11.0.0",
-    "axios": "catalog:",
     "bull": "^4.16.5",
     "bullmq": "^5.51.1",
     "cache-manager": "^6.4.2",

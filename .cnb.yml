@@ -5,7 +5,7 @@
     - apps/${CNB_PIPELINE_KEY}/** # 当前应用更新
     - packages/**/** #依赖包更新
   imports:
-    - https://cnb.cool/my-cnb/KeyConfig/-/blob/700894071a12257f2b67f00dac2586479bf97d55/.sls-ali.yml
+    - https://cnb.cool/my-cnb/KeyConfig/-/blob/700894071a12257f2b67f00dac2586479bf97d55/JDCloud.yml
   stages:
     - name: 编译构建
       script:
@@ -53,9 +53,9 @@
         command_timeout: 2m
         script: |
           ls -l /tmp/apps/${CNB_PIPELINE_KEY}/dist/
-          mkdir /opt/1panel/apps/openresty/1p-openresty/www/sites/passport.console.miyou.top/index
-          cp -r /tmp/apps/${CNB_PIPELINE_KEY}/dist/* /opt/1panel/apps/openresty/1p-openresty/www/sites/passport.console.miyou.top/index
-          ls -l /opt/1panel/apps/openresty/1p-openresty/www/sites/passport.console.miyou.top/index
+          mkdir ${TARGET_DIR}
+          cp -r /tmp/apps/${CNB_PIPELINE_KEY}/dist/* /opt/1panel/apps/openresty/1p-openresty/www/sites/${TARGET_WEB_PASSPORT}/index
+          ls -l /opt/1panel/apps/openresty/1p-openresty/www/sites/${TARGET_WEB_PASSPORT}/index
 
 master:
   push:
