@@ -18,10 +18,10 @@
     - name: scp-deploy-ecs
       image: tencentcom/scp
       settings:
-        host: $REMOTE_HOST
-        username: $REMOTE_USERNAME
-        key: $PRIVATE_KEY
-        port: $REMOTE_PORT
+        host: ${REMOTE_HOST}
+        username: ${REMOTE_USERNAME}
+        key: ${PRIVATE_KEY}
+        port: ${REMOTE_PORT}
         target: /tmp
         source: apps/${CNB_PIPELINE_KEY}/dist
     - name: ssh-deploy-web-console-passport
