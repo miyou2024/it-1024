@@ -15,7 +15,7 @@
     - name: 查看编译结果
       script:
         - ls -l apps/${CNB_PIPELINE_KEY}
-    - name: scp-ali-ecs
+    - name: scp-deploy-ecs
       image: tencentcom/scp
       settings:
         host: $REMOTE_HOST
