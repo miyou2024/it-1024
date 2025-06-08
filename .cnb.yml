@@ -24,22 +24,6 @@
         port: $REMOTE_PORT
         target: /tmp
         source: apps/${CNB_PIPELINE_KEY}/dist
-    - name: ssh-deploy-web-console-home
-      if: |
-          [ "$CNB_PIPELINE_KEY" = "web-console-home" ]
-      image: tencentcom/ssh
-      settings:
-        host:
-          - ${REMOTE_HOST}
-        username: ${REMOTE_USERNAME}
-        key: ${PRIVATE_KEY}
-        port: ${REMOTE_PORT}
-        command_timeout: 2m
-        script: |
-          ls -l /tmp/apps/${CNB_PIPELINE_KEY}/dist/
-          mkdir /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
-          cp -r /tmp/apps/${CNB_PIPELINE_KEY}/dist/* /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
-          ls -l /opt/1panel/apps/openresty/1p-openresty/www/sites/home.console.miyou.top/index
     - name: ssh-deploy-web-console-passport
       if: |
           [ "$CNB_PIPELINE_KEY" = "web-console-passport" ]
