@@ -23,7 +23,7 @@
     "build:naive": "pnpm run build --filter=@ittlr/web-naive",
     "build:play": "pnpm run build --filter=@ittlr/playground",
     "build:backend-nestjs": "pnpm run build --filter=@ittlr/backend-nestjs",
-    "build:backend-passport": "pnpm run build --filter=@ittlr/backend-passport",
+    "build:backend-console-config": "pnpm run build --filter=@ittlr/backend-console-config",
     "build:backend-console-passport": "pnpm run build --filter=@ittlr/backend-console-passport",
     "build:web-console-passport": "pnpm run build --filter=@ittlr/web-console-passport",
     "build:web-console-home": "pnpm run build --filter=@ittlr/web-console-home",
