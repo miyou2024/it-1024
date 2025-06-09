@@ -834,26 +834,7 @@ importers:
         specifier: ^8.20.0
         version: 8.31.1(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3)
 
-  apps/backend-mock:
-    dependencies:
-      '@faker-js/faker':
-        specifier: 'catalog:'
-        version: 9.7.0
-      jsonwebtoken:
-        specifier: 'catalog:'
-        version: 9.0.2
-      nitropack:
-        specifier: 'catalog:'
-        version: 2.11.11(@netlify/blobs@8.2.0)(encoding@0.1.13)(mysql2@3.14.1)
-    devDependencies:
-      '@types/jsonwebtoken':
-        specifier: 'catalog:'
-        version: 9.0.9
-      h3:
-        specifier: 'catalog:'
-        version: 1.15.3
-
-  apps/backend-nestjs:
+  apps/backend-console-passport:
     dependencies:
       '@nestjs/axios':
         specifier: ^4.0.0
@@ -897,9 +878,6 @@ importers:
       '@nestjs/typeorm':
         specifier: ^11.0.0
         version: 11.0.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.22(ioredis@5.6.1)(mongodb@6.16.0(socks@2.8.4))(mysql2@3.14.1)(reflect-metadata@0.2.2)(ts-node@10.9.2(@swc/core@1.11.22(@swc/helpers@0.5.17))(@types/node@22.15.3)(typescript@5.8.3)))
-      axios:
-        specifier: 'catalog:'
-        version: 1.9.0
       bull:
         specifier: ^4.16.5
         version: 4.16.5
@@ -1055,7 +1033,26 @@ importers:
         specifier: ^8.20.0
         version: 8.31.1(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3)
 
-  apps/backend-passport:
+  apps/backend-mock:
+    dependencies:
+      '@faker-js/faker':
+        specifier: 'catalog:'
+        version: 9.7.0
+      jsonwebtoken:
+        specifier: 'catalog:'
+        version: 9.0.2
+      nitropack:
+        specifier: 'catalog:'
+        version: 2.11.11(@netlify/blobs@8.2.0)(encoding@0.1.13)(mysql2@3.14.1)
+    devDependencies:
+      '@types/jsonwebtoken':
+        specifier: 'catalog:'
+        version: 9.0.9
+      h3:
+        specifier: 'catalog:'
+        version: 1.15.3
+
+  apps/backend-nestjs:
     dependencies:
       '@nestjs/axios':
         specifier: ^4.0.0
