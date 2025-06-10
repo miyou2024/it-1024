@@ -19,7 +19,7 @@ async function bootstrap() {
     yamlDocumentUrl: 'swagger.yaml',
   });
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('console-passport-api');
 
   // app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
