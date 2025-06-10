@@ -53,6 +53,7 @@
     "dev:web-console-meta": "pnpm -F @ittlr/web-console-meta run dev",
     "dev:web-console-config": "pnpm -F @ittlr/web-console-config run dev",
     "dev:backend-nestjs": "pnpm -F @ittlr/backend-nestjs run dev",
+    "dev:backend-mock": "pnpm -F @ittlr/backend-mock run start",
     "dev:backend-passport": "pnpm -F @ittlr/backend-passport run dev",
     "dev:backend-console-passport": "pnpm -F @ittlr/backend-console-passport run dev",
     "dev:backend-console-config": "pnpm -F @ittlr/backend-console-config run dev",
