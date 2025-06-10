@@ -19,6 +19,8 @@ async function bootstrap() {
     yamlDocumentUrl: 'swagger.yaml',
   });
 
+  app.setGlobalPrefix('console-config-api');
+
   // app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   await app.listen(process.env.PORT ?? 3000, '127.0.0.1');
