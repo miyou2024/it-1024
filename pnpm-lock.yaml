@@ -1254,7 +1254,7 @@ importers:
         specifier: 'catalog:'
         version: 1.15.3
 
-  apps/backend-nestjs:
+  apps/backend-nestjs-template:
     dependencies:
       '@nestjs/axios':
         specifier: ^4.0.0

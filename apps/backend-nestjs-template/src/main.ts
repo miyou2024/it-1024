@@ -9,13 +9,17 @@ async function bootstrap() {
    * swagger config
    */
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
-    .addTag('cats')
+    .setTitle('NestJS Template Service')
+    .setDescription(`NestJS Template Full feat ${new Date().toLocaleString('zh-Hans-CN')}`)
+    .setVersion(`${new Date().toLocaleString('zh-Hans-CN')}`)
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, documentFactory);
+  SwaggerModule.setup('docs', app, documentFactory, {
+    jsonDocumentUrl: 'swagger.json',
+    yamlDocumentUrl: 'swagger.yaml',
+  });
+
+  app.setGlobalPrefix('nestjs-template-api');
 
   // app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
