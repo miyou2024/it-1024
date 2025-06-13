@@ -1,0 +1,19 @@
+{
+  "phone": {
+    "title": "电话",
+    "list": "电话列表",
+    "phoneUser": "姓名",
+    "phoneNumber": "电话",
+    "phoneProvider": "运营商",
+    "phoneCity": "归属地",
+    "id": "电话ID",
+    "type": "类型",
+    "status": "状态",
+    "remark": "备注",
+    "createTime": "创建时间",
+    "operation": "操作",
+    "permissions": "权限",
+    "setPermissions": "授权"
+  },
+  "title": "联系人管理"
+}
