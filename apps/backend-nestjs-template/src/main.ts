@@ -9,8 +9,8 @@ async function bootstrap() {
    * swagger config
    */
   const config = new DocumentBuilder()
-    .setTitle('NestJS Template Service')
-    .setDescription(`NestJS Template Full feat ${new Date().toLocaleString('zh-Hans-CN')}`)
+    .setTitle('NestjsTemplate Service')
+    .setDescription(`NestjsTemplate ${new Date().toLocaleString('zh-Hans-CN')}`)
     .setVersion(`${new Date().toLocaleString('zh-Hans-CN')}`)
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
