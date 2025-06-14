@@ -1,0 +1,46 @@
+{
+  "namespace": {
+    "list": "命名空间列表",
+    "id": "ID",
+    "nsCode": "编码",
+    "nsName": "名称",
+    "createTime": "创建时间",
+    "createUser": "创建人",
+    "updateTime": "修改时间",
+    "updateUser": "修改人",
+    "deleteTime": "删除时间",
+    "deleteUser": "删除人",
+    "remark": "备注",
+    "status": "状态",
+    "title": "命名空间",
+    "operation": "操作"
+  },
+  "dict": {
+    "list": "字典列表",
+    "id": "ID",
+    "nsId": "命名空间ID",
+    "nsName": "命名空间名称",
+    "nsRelation": "命名空间",
+    "dictName": "字典名称",
+    "dictCode": "字典编码",
+    "dictType": "字典类型",
+    "dictValue": "字典Val",
+    "createTime": "创建时间",
+    "createUser": "创建人",
+    "updateTime": "修改时间",
+    "updateUser": "修改人",
+    "deleteTime": "删除时间",
+    "deleteUser": "删除人",
+    "remark": "备注",
+    "status": "状态",
+    "title": "字典配置",
+    "operation": "操作",
+    "enumDictType":{
+      "number": "数字",
+      "string": "字符串",
+      "object": "对象",
+      "array": "列表"
+    }
+  },
+  "title": "配置管理"
+}
