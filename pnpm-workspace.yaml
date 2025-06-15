@@ -10,6 +10,7 @@ packages:
   - packages/business/*
   - packages/my/*
   - apps/*
+  - apps/backend-nestjs/*
   - scripts/*
   - docs
   - playground

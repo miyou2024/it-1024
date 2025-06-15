@@ -1,0 +1,18 @@
+system:
+  NODE_ENV: 'development'
+
+server:
+  envCloud: 'sample'
+  http:
+    prefix: '/api-template-api'
+    port: 3001
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'ApiSampleTitle'
+    description: 'ApiSampleDescription'
+
+  deep:
+    key2: 'key222'
+    key3: 'key333'
+

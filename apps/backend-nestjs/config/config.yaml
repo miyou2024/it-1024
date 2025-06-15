@@ -1,0 +1,16 @@
+system:
+  NODE_ENV: 'development'
+
+server:
+  envCloud: 'default'
+  swagger:
+    title: 'ApiDefaultTitle'
+    description: 'ApiDefaultDescription'
+    version: '1.0.0'
+    docPath: '/docs'
+    jsonDocumentUrl: 'swagger.json'
+    yamlDocumentUrl: 'swagger.yaml'
+  deep:
+    key1: 'key1'
+    key2: 'key2'
+

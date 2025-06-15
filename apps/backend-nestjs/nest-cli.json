@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/api-template/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/api-template/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/api-template",
+  "projects": {
+    "api-console-account": {
+      "type": "application",
+      "root": "apps/api-console-account",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-account/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-account/tsconfig.app.json"
+      }
+    },
+    "api-console-config": {
+      "type": "application",
+      "root": "apps/api-console-config",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-config/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-config/tsconfig.app.json"
+      }
+    },
+    "api-console-devops": {
+      "type": "application",
+      "root": "apps/api-console-devops",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-devops/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-devops/tsconfig.app.json"
+      }
+    },
+    "api-console-document": {
+      "type": "application",
+      "root": "apps/api-console-document",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-document/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-document/tsconfig.app.json"
+      }
+    },
+    "api-console-file": {
+      "type": "application",
+      "root": "apps/api-console-file",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-file/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-file/tsconfig.app.json"
+      }
+    },
+    "api-console-loc": {
+      "type": "application",
+      "root": "apps/api-console-loc",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-loc/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-loc/tsconfig.app.json"
+      }
+    },
+    "api-console-meta": {
+      "type": "application",
+      "root": "apps/api-console-meta",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-meta/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-meta/tsconfig.app.json"
+      }
+    },
+    "api-console-passport": {
+      "type": "application",
+      "root": "apps/api-console-passport",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-console-passport/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-console-passport/tsconfig.app.json"
+      }
+    },
+    "api-template": {
+      "type": "application",
+      "root": "apps/api-template",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-template/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-template/tsconfig.app.json"
+      }
+    },
+    "nestjs-bootstrap": {
+      "type": "library",
+      "root": "libs/nestjs-bootstrap",
+      "entryFile": "index",
+      "sourceRoot": "libs/nestjs-bootstrap/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nestjs-bootstrap/tsconfig.lib.json"
+      }
+    }
+  }
+}
