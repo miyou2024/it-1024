@@ -51,9 +51,6 @@ catalogs:
     '@manypkg/get-packages':
       specifier: ^2.2.2
       version: 2.2.2
-    '@nolebase/vitepress-plugin-git-changelog':
-      specifier: ^2.17.0
-      version: 2.17.0
     '@playwright/test':
       specifier: ^1.52.0
       version: 1.52.0
@@ -126,9 +123,6 @@ catalogs:
     '@vee-validate/zod':
       specifier: ^4.15.0
       version: 4.15.0
-    '@vite-pwa/vitepress':
-      specifier: ^1.0.0
-      version: 1.0.0
     '@vitejs/plugin-vue':
       specifier: ^5.2.3
       version: 5.2.3
@@ -318,9 +312,6 @@ catalogs:
     lucide-vue-next:
       specifier: ^0.503.0
       version: 0.503.0
-    medium-zoom:
-      specifier: ^1.1.0
-      version: 1.1.0
     naive-ui:
       specifier: ^2.41.0
       version: 2.41.0
@@ -480,9 +471,6 @@ catalogs:
     vitepress:
       specifier: ^1.6.3
       version: 1.6.3
-    vitepress-plugin-group-icons:
-      specifier: ^1.5.2
-      version: 1.5.2
     vitest:
       specifier: ^3.1.2
       version: 3.1.2
@@ -650,6 +638,9 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(less@4.3.0)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+      vitepress:
+        specifier: 'catalog:'
+        version: 1.6.3(@algolia/client-search@5.23.4)(@types/node@22.15.3)(async-validator@4.2.5)(axios@1.9.0)(jwt-decode@4.0.0)(less@4.3.0)(nprogress@0.2.0)(postcss@8.5.3)(qrcode@1.5.4)(sass@1.87.0)(search-insights@2.17.3)(sortablejs@1.15.6)(terser@5.39.0)(typescript@5.8.3)
       vitest:
         specifier: 'catalog:'
         version: 3.1.2(@types/debug@4.1.12)(@types/node@22.15.3)(happy-dom@17.4.4)(jiti@2.4.2)(less@4.3.0)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
@@ -8108,14 +8099,8 @@ packages:
     peerDependencies:
       vue: ^3.5.13
 
-  '@vue/devtools-kit@7.7.5':
-    resolution: {integrity: sha512-S9VAVJYVAe4RPx2JZb9ZTEi0lqTySz2CBeF0wHT5D3dkTLnT9yMMGegKNl4b2EIELwLSkcI9bl2qp0/jW+upqA==}
-
   '@vue/devtools-kit@7.7.6':
     resolution: {integrity: sha512-geu7ds7tem2Y7Wz+WgbnbZ6T5eadOvozHZ23Atk/8tksHMFOFylKi1xgGlQlVn0wlkEf4hu+vd5ctj1G4kFtwA==}
-
-  '@vue/devtools-shared@7.7.5':
-    resolution: {integrity: sha512-QBjG72RfpM0DKtpns2RZOxBltO226kOAls9e4Lri6YxS2gWTgL0H+wj1R2K76lxxIeOrqo4+2Ty6RQnzv+WSTQ==}
 
   '@vue/devtools-shared@7.7.6':
     resolution: {integrity: sha512-yFEgJZ/WblEsojQQceuyK6FzpFDx4kqrz2ohInxNj5/DnhoX023upTv4OD6lNPLAA5LLkbwPVb10o/7b+Y4FVA==}
@@ -20337,7 +20322,7 @@ snapshots:
 
   '@vue/devtools-api@7.7.5':
     dependencies:
-      '@vue/devtools-kit': 7.7.5
+      '@vue/devtools-kit': 7.7.6
 
   '@vue/devtools-core@7.7.6(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(less@4.3.0)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))':
     dependencies:
@@ -20351,16 +20336,6 @@ snapshots:
     transitivePeerDependencies:
       - vite
 
-  '@vue/devtools-kit@7.7.5':
-    dependencies:
-      '@vue/devtools-shared': 7.7.5
-      birpc: 2.3.0
-      hookable: 5.5.3
-      mitt: 3.0.1
-      perfect-debounce: 1.0.0
-      speakingurl: 14.0.1
-      superjson: 2.2.2
-
   '@vue/devtools-kit@7.7.6':
     dependencies:
       '@vue/devtools-shared': 7.7.6
@@ -20370,10 +20345,6 @@ snapshots:
       perfect-debounce: 1.0.0
       speakingurl: 14.0.1
       superjson: 2.2.2
-
-  '@vue/devtools-shared@7.7.5':
-    dependencies:
-      rfdc: 1.4.1
 
   '@vue/devtools-shared@7.7.6':
     dependencies:
