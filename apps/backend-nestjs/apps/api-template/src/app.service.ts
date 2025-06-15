@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { TraceLoggerService } from "@miyou2024/nestjs-bootstrap";
 
 @Injectable()
-export class ApiTemplateService {
+export class AppService {
   constructor(
     private readonly logger: TraceLoggerService,
   ) {

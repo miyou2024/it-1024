@@ -1,11 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiTemplateService } from './api-template.service';
+import { AppService } from './app.service';
 import { TraceLoggerService } from "@miyou2024/nestjs-bootstrap";
 
 @Controller()
-export class ApiTemplateController {
+export class AppController {
   constructor(
-    private readonly apiTemplateService: ApiTemplateService,
+    private readonly apiTemplateService: AppService,
     private readonly logger: TraceLoggerService,
   ) {
     this.logger.setContext(this.constructor.name);
