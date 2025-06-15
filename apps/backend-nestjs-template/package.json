@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@ittlr/nestjs-bootstrap": "^0.1.0",
     "@nestjs/axios": "^4.0.0",
     "@nestjs/bull": "^11.0.2",
     "@nestjs/bullmq": "^11.0.2",
