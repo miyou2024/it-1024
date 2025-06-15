@@ -3,6 +3,9 @@ system:
 
 server:
   envCloud: 'default'
+  http:
+    body:
+      limit: '10mb'
   swagger:
     title: 'ApiDefaultTitle'
     description: 'ApiDefaultDescription'
