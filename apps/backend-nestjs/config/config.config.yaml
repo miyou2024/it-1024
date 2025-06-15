@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-config-api'
+    port: 3009
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api config title'
+    description: 'api config description'

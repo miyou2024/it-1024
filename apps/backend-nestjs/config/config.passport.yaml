@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-passport-api'
+    port: 3002
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api passport Title'
+    description: 'api passport Description'

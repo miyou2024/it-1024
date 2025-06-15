@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-document-api'
+    port: 3006
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api document title'
+    description: 'api document description'

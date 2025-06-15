@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-devops-api'
+    port: 3008
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api devops title'
+    description: 'api devops description'

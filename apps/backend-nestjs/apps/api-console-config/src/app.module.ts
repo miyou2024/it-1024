@@ -6,7 +6,7 @@ import { NestjsBootstrapModule } from "@miyou2024/nestjs-bootstrap";
 @Module({
   imports: [
     NestjsBootstrapModule.register({
-      loadConfigFiles: ['config/config.sample.yaml'],
+      loadConfigFiles: ['config/config.config.yaml']
     }),
   ],
   controllers: [AppController],

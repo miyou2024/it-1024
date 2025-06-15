@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-account-api'
+    port: 3003
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api account title'
+    description: 'api account description'

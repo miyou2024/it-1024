@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-file-api'
+    port: 3005
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api file title'
+    description: 'api file description'

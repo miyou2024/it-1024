@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-loc-api'
+    port: 3007
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api loc title'
+    description: 'api loc description'

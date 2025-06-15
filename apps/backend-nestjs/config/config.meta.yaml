@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-meta-api'
+    port: 3004
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api meta title'
+    description: 'api meta description'

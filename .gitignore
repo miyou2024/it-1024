@@ -53,5 +53,7 @@ vite.config.ts.*
 node-compile-cache
 tmp
 
-config.*.yaml
-!config.sample.yaml
+config.local.yaml
+config.dev.yaml
+config.test.yaml
+config.prod.yaml

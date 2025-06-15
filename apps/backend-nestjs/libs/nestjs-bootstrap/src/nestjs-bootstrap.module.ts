@@ -11,11 +11,12 @@ import { TransformResponseInterceptor } from './transform-response/transform-res
 import { ValidationRequestPipe } from './validation-request/validation-request.pipe';
 import { ConfigModule } from "@nestjs/config";
 import { loadGlobalConfig } from "./nestjs-bootstrap.util";
+import { INestjsBootstrapModuleOptions } from './nestjs-bootstrap.interface';
 
 @Global()
 @Module({})
 export class NestjsBootstrapModule {
-  static register() {
+  static register(options?: INestjsBootstrapModuleOptions) {
     return {
       global: true,
       module: NestjsBootstrapModule,
@@ -23,7 +24,11 @@ export class NestjsBootstrapModule {
         ConfigModule.forRoot({
           isGlobal: true,
           load: [
-            loadGlobalConfig(['config/config.yaml', 'config/config.sample.yaml']),
+            loadGlobalConfig([
+              'config/config.yaml',
+              'config/config.sample.yaml',
+              ...options?.loadConfigFiles || []
+            ]),
           ],
         }),
         ClsModule.forRoot({
