@@ -6,8 +6,9 @@ import { preferences } from '@vben/preferences';
 import { initStores } from '@vben/stores';
 import '@vben/styles';
 import '@vben/styles/antd';
-
 import { useTitle } from '@vueuse/core';
+import STable from '@surely-vue/table';
+import '@surely-vue/table/dist/index.min.css';
 
 import { $t, setupI18n } from '#/locales';
 
@@ -55,6 +56,8 @@ async function bootstrap(namespace: string) {
   // 配置Motion插件
   const { MotionPlugin } = await import('@vben/plugins/motion');
   app.use(MotionPlugin);
+
+  app.use(STable);
 
   // 动态更新标题
   watchEffect(() => {
