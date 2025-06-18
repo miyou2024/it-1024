@@ -1,7 +1,8 @@
 <script setup lang="tsx">
 import type { AboutProps } from './drivers-config';
-import { message, RadioButton, Select } from "ant-design-vue";
+import { message, Space, Select, Input, Checkbox } from "ant-design-vue";
 import { useVbenForm, z } from '#/adapter/form';
+import { Page } from "@vben/common-ui";
 
 interface Props extends AboutProps {}
 
@@ -38,9 +39,9 @@ const [Form] = useVbenForm({
         placeholder: '请输入',
       },
       // 字段名
-      fieldName: 'accessKey',
+      fieldName: 'accessKeyId',
       // 界面显示的label
-      label: 'AccessKey',
+      label: 'accessKeyId',
       rules: 'required',
     },
     {
@@ -49,8 +50,17 @@ const [Form] = useVbenForm({
         placeholder: '请输入',
       },
       defaultValue: '',
-      fieldName: 'accessSecret',
-      label: 'AccessSecret',
+      fieldName: 'accessKeySecret',
+      label: 'accessKeySecret',
+      rules: 'required',
+    },
+    {
+      component: 'Input',
+      componentProps: {
+        placeholder: '请输入.例如 blog-cdn',
+      },
+      fieldName: 'bucket',
+      label: 'bucket',
       rules: 'required',
     },
     {
@@ -58,37 +68,37 @@ const [Form] = useVbenForm({
       componentProps: {
         placeholder: '请输入.例如 cn-hangzhou',
       },
-      fieldName: 'bucket',
-      label: 'Bucket(存储桶)',
+      fieldName: 'region',
+      label: 'region',
       rules: 'required',
-    },
-    {
-      component: 'Input',
-      componentProps: {
-        placeholder: '请输入',
-      },
-      fieldName: 'customDomain',
-      label: '自定义域名',
-      rules: z.string().optional(),
     },
     {
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: '公有读',
-            value: '1',
+            label: '是',
+            value: true,
           },
           {
-            label: '私有读',
-            value: '2',
+            label: '否',
+            value: false,
           },
         ],
       },
-      fieldName: 'visitAccess',
-      label: '访问权限',
+      fieldName: 'cname',
+      label: '自定义域名',
       rules: 'selectRequired',
     },
+    {
+      component: 'Input',
+      componentProps: {
+        placeholder: '请输入(如果开启了自定义域名则为自定义域名)',
+      },
+      fieldName: 'endpoint',
+      label: 'endpoint',
+      rules: 'required',
+    }
   ],
 });
 
@@ -142,8 +152,7 @@ const [FormCustomer] = useVbenForm({
         placeholder: '请输入',
       },
       fieldName: 'imageSaveConfig',
-      label: '图片存储配置',
-      suffix: () => renderFileTypes(),
+      label: '图片配置',
       rules: z.string().optional(),
     },
     {
@@ -152,7 +161,7 @@ const [FormCustomer] = useVbenForm({
         placeholder: '请输入',
       },
       fieldName: 'audioSaveConfig',
-      label: '音频存储配置',
+      label: '音频配置',
       rules: z.string().optional(),
     },
     {
@@ -161,7 +170,7 @@ const [FormCustomer] = useVbenForm({
         placeholder: '请输入',
       },
       fieldName: 'videoSaveConfig',
-      label: '视频存储配置',
+      label: '视频配置',
       rules: z.string().optional(),
     },
     {
@@ -170,7 +179,7 @@ const [FormCustomer] = useVbenForm({
         placeholder: '请输入',
       },
       fieldName: 'docPreviewSaveConfig',
-      label: '预览文档存储配置',
+      label: '预览文档配置',
       rules: z.string().optional(),
     },
     {
@@ -179,7 +188,7 @@ const [FormCustomer] = useVbenForm({
         placeholder: '请输入',
       },
       fieldName: 'docEditorSaveConfig',
-      label: '编辑文档存储配置',
+      label: '编辑文档配置',
       rules: z.string().optional(),
     },
   ],
@@ -209,10 +218,25 @@ const [FormCustomer] = useVbenForm({
 
     <div class="card-box mt-6 p-5">
       <div>
-        <h5 class="text-foreground text-lg">自定义规则</h5>
+        <h5 class="text-foreground text-lg">存储目录配置</h5>
       </div>
       <div class="mt-4">
-        <FormCustomer />
+        <FormCustomer>
+          <template #imageSaveConfig="slotProps">
+            <Space>
+              当文件后缀为
+              <Select
+                style="width: 100px;"
+                mode="multiple"
+                :options="[{label: 'jpg', value: 'jpg'}]"
+              ></Select>
+              时，存储目录为
+              <Input  placeholder="请输入" />
+              <Checkbox style="margin-left: 20px;">当文件不带后缀时，使用Mine-Type识别。</Checkbox>
+              {{JSON.stringify(slotProps)}}
+            </Space>
+          </template>
+        </FormCustomer>
       </div>
     </div>
     <div class="card-box mt-6 p-5">
