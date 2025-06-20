@@ -24,17 +24,16 @@ export class TraceLoggerService extends ConsoleLogger {
     if (Array.isArray(message)) {
       for (let i = (message as []).length - 1; i >= 0; i--) {
         const msgItem = message[i];
-        msgArr.push(`${this.transferMessage(msgItem)}`);
+        msgArr.push(this.transferMessage(msgItem));
       }
     } else {
-      msgArr.push(`${this.transferMessage(message)}`);
+      msgArr.push(this.transferMessage(message));
     }
     const requestID = this.clsService.getId() || this.clsService.get('RequestId');
     if (!requestID) {
       return `${msgArr.join(' --- ')}`;
     }
     //    console.log('setRequestId', message);
-
     const msg = msgArr.join(' --- ');
     this.nestjsBootstrapService.appendRequestLog(requestID, {
       message: msg,

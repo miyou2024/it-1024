@@ -7,7 +7,7 @@ import { ApiModule } from './api/api.module';
 @Module({
   imports: [
     NestjsBootstrapModule.register({
-      loadConfigFiles: ['config/config.passport.yaml']
+      loadConfigFiles: ['config/config.db.ai.yaml']
     }),
     ApiModule,
   ],

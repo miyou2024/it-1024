@@ -23,6 +23,7 @@
     "build:playground": "pnpm run build --filter=@ittlr/playground",
     "build:backend-mock": "pnpm run build --filter=@ittlr/backend-mock",
     "build:backend-nestjs-template": "pnpm run build --filter=@ittlr/backend-nestjs-template",
+    "build:backend-console-db.ai": "pnpm run build:api-console-db.ai --filter=@ittlr/backend-nestjs",
     "build:backend-console-config": "pnpm run build --filter=@ittlr/backend-console-config",
     "build:backend-console-document": "pnpm run build --filter=@ittlr/backend-console-document",
     "build:backend-console-account": "pnpm run build --filter=@ittlr/backend-console-account",
