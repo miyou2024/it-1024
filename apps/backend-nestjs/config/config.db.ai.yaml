@@ -1,0 +1,9 @@
+server:
+  http:
+    prefix: '/console-db.ai-api'
+    port: 3011
+    body:
+      limit: '10mb'
+  swagger:
+    title: 'api db.ai title'
+    description: 'api db.ai description'

@@ -23,7 +23,8 @@ export class TraceLoggerInterceptor implements NestInterceptor {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           const curRequestStacks = this.nestjsBootstrapService.getRequestLog(RequestId);
           console.log(
-            `CurRequest<===>Success<===>${RequestId}<===>${requestUrl}:${JSON.stringify(curRequestStacks)}`,
+            `CurRequest<===>Success<===>${RequestId}<===>${requestUrl}`,
+            curRequestStacks
           );
         }
       }),

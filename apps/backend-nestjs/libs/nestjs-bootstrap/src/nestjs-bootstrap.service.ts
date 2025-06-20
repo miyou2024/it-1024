@@ -16,7 +16,10 @@ export class NestjsBootstrapService {
     }
     if (Array.isArray(keyData)) {
       keyData.push(
-        `${JSON.stringify(value)} ---> ${new Date().toLocaleString('zh-hans')}`,
+        {
+          MsgValue: value,
+          MsgTime: new Date().toLocaleString('zh-hans') + `${performance.now()}`,
+        }
       );
       this.clsService.set(key, keyData);
       return keyData;
